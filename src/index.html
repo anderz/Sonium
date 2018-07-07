@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Sonium</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Sonium One" />
+  <meta name="keywords" content="synth" />
+  <meta name="viewport" content="width=810" />
+  <meta property="og:image" content="/icon-hires.png" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/icon-hires.png" rel="apple-touch-icon" />
+  <link href="/icon-hires.png" rel="icon" sizes="180x180" />
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
+  <script src="/js/pro.js" type="text/javascript"></script>
+  <script src="/js/main.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      // Build app.
+      (function(ns) {
+        const App = Registry.for('App')
+        const Header = Registry.for('Header')
+        const MaximizeButton = Registry.for('MaximizeButton')
+
+        const o = Registry.for('o')
+
+        const app = o(App)
+        app.add(o(Header))
+        app.add(o(MaximizeButton))
+        ns.app = app
+      })(this)
+    }
+  </script>
+</head>
+
+<body>
+  <noscript><div class="noscript">Sonium requires JavaScript enabled in your browser.</div></noscript>
+</body>
+
+</html>
