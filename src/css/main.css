@@ -1,6 +1,6 @@
 html {overflow:-moz-scrollbars-vertical;overflow-y:scroll}
-body {margin:0px;background-color:#f9f9f9}
-body,td,a,p,textarea,input,button {font-family:sans-serif;font-size:16px;line-height:18px;color:#202020}
+body {margin:0px;background-color:#333333}
+body,td,a,p,textarea,input,button {font-family:sans-serif;font-size:16px;line-height:18px;color:#e0e0e0}
 table,tr,td,form,div,input,textarea,img,button,canvas {border-width:0px;border-style:none;border-spacing:0px;
 	outline-style:none;padding:0px;margin:0px;outline:0px;border-collapse:collapse}
 img {vertical-align:middle}
@@ -60,7 +60,7 @@ color:#505050}
 .noscript {line-height:38px;height:40px;font-weight:bold;text-align:center;
 	margin-top:120px;padding-right:24px;background-color:#f8f0c0}
 
-.app {margin:80px auto 0px auto;width:800px}
+.app {margin:80px auto 0px auto;width:1000px}
 .menu {display:inline-block}
 .menu-item {vertical-align:top;padding-right:15px}
 

@@ -1,14 +1,11 @@
 /* Sonium main script. */
 
-/* gljobal Registry */
+/* global Registry */
 
 (function() {
 
   Registry.register('maximizeHeader', 'Message for maximizing the header.')
   Registry.register('minimizeHeader', 'Message for minimizing the header.')
-  Registry.register('isMining', 'Status for mining on and off.')
-  Registry.register('startMining', 'Message for start mining.')
-  Registry.register('stopMining', 'Message for stop mining.')
 
   const maximizeHeader = Registry.for('maximizeHeader')
   const minimizeHeader = Registry.for('minimizeHeader')
@@ -132,7 +129,8 @@
     a.href = '/'
     const title = 'Chrono'
     a.title = title
-    const img = c('img', a)
+//    const img = c('img', a)
+    const img = c('img')
     img.src = '/Chrono/safe/images/logo.png'
     img.title = title
     img.alt = title
@@ -275,7 +273,7 @@
       pastedText = window.clipboardData.getData('Text')
     }
     pastedText = pastedText.replace(/[^a-zA-Z0-9\b]/g, '')
-    if (pastedText.length > Chat.MAX_USERNAME) {
+    if (pastedText.length > MAX_TEXT) {
       pastedText = pastedText.substring(0, maxCharacters)
     }
     event.currentTarget.value = pastedText
