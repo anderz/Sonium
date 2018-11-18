@@ -8,12 +8,22 @@ function sin(x) {
 }
 
 function saw(x, f) {
-  let cutoff = (138000.0 - f * 28.0) / f
-  cutoff = cutoff < 5000 ? 5000 : cutoff
+  let cutoff = (138000.0 - f * 28.0) 
+  cutoff = cutoff < 80000 ? 80000 : cutoff
+  cutoff /= f
+  let normalize = 1 + (f - 2000) / 10000
   const y = x < 0.5 ? x : 1 - x
   let sincSaw = 2*y - 2.51981915*y*Math.sin((cutoff)*(y-0.5 -1.15/(cutoff))) / 
         ((cutoff)*(y-0.5-1.15/(cutoff)))
-  return x < 0.5 ? sincSaw : -sincSaw
+  sincSaw *= normalize
+  sincSaw = x < 0.5 ? sincSaw : -sincSaw
+  const specAmp = 2 / Math.PI;
+  let z = 2*x - Math.trunc(2*x)
+  sincSaw += sin(z)*0.5*normalize*specAmp;
+  z = 3*x + 0.5 - Math.trunc(3*x + 0.5)
+  sincSaw += sin(z)*0.3333333*normalize*specAmp;
+
+  return sincSaw
 }
 
 function getWave(freq, time) {
@@ -26,13 +36,14 @@ function getWave(freq, time) {
   b += a
   return b
 }
-let freq = 300
+let freq = 400
 function loop(numFrames, outL, outR, sampleRate) {
-   freq++
+   //freq++
   const amp = 0.5;
 
   for (let i = 0; i < numFrames; i++) {
     outL[i] = getWave(freq      , time) * amp;
+    outR[i] = getWave(freq      , time) * amp;
     //outR[i] = getSine(freq * 1.5, time) * amp;
 
     time += 1 / sampleRate;
